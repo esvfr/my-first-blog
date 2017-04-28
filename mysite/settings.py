@@ -25,7 +25,7 @@ SECRET_KEY = 'cw=w1cz-k&2r08j5i2*vlhjpm6azp_yg29b(9h#9je&px0+v&+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['esvfr.pythonanywhere.com']
 
 
 # Application definition
