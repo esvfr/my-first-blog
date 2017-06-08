@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% block page %}
+    <article>
+    <h1>Section: {{ section.section_title }}</h1>
+        <p>Description: {{ section.section_description|safe }}</p>
+        <h2>Articles:</h2>
+        <ul>
+	{% if section.article_set.all %}
+	        {% for article in section.article_set.all|dictsort:'article_title' %}
+        	    {% if article.article_status %}
+	            <li>
+	            <a href="{% url 'blog:article' section.section_url article.id %}">
+	                {{ article.article_title }}
+	            </a>
+        	    </li>
+	            {% endif %}
+	        {% endfor %}
+	{% else %}
+	<p> No Article </p>
+	{%endif%}
+        </ul>
+    </article>
+{% endblock %} 

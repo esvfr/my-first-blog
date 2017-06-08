@@ -1,0 +1,7 @@
+{% extends 'blog/base.html' %}
+{% block page %}
+    <article>
+        <h1>{{ article.article_title }}</h1>
+        <p>{{ article.article_content|safe }}</p>
+    </article>
+{% endblock %}

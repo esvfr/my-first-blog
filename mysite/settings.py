@@ -24,8 +24,10 @@ SECRET_KEY = 'cw=w1cz-k&2r08j5i2*vlhjpm6azp_yg29b(9h#9je&px0+v&+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#DEBUG = False
 
-ALLOWED_HOSTS = ['esvfr.pythonanywhere.com']
+ALLOWED_HOSTS = ['esvfr.pythonanywhere.com',
+		 '127.0.0.1']
 
 
 # Application definition
@@ -38,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'home',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CSRF_FAILURE_VIEW = 'home.views.csrf_failure' #For Error 403
 
 ROOT_URLCONF = 'mysite.urls'
 

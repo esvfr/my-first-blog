@@ -1,0 +1,6 @@
+{% extends 'home/base.html' %}
+{% block page %}
+{% csrf_token %}
+    <h1>Error 403 ! Error authorization! Access denied !:</h1>
+    <p> {{ context }} </p>
+{% endblock %}
