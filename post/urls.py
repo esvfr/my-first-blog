@@ -14,11 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from django.contrib import admin
 
 from . import views
 
-app_name='home'
+app_name='post'
 urlpatterns = [
-#    url(r'^$', views.EIndexView.as_view(), name='index'),
-    #url(r'^$', views.ArticlesFeed()),
+    url(r'^comment/(?P<article_id>[0-9]+)/$', views.add_Comment, name = 'add_comment'),
+    url(r'^(?P<section>[\w]+)/(?P<article_id>[0-9]+)/$', views.EArticleView.as_view(), name = 'article'),
 ]

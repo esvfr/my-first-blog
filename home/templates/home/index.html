@@ -1,5 +1,7 @@
 {% extends 'home/base.html' %}
 {% block page %}
+    {% load home_extras %}
+    <h1>{% get_attribute 'SITE_URL'%}</h1>
     <h1>Publisher</h1>
     {% if article_lists %}
         {% for article in article_lists %}
