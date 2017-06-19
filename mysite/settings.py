@@ -42,9 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'home',
+    #'home.apps.HomeConfig',
     'post',
+    'search',
     'bootstrap3',
     'home.templatetags.home_extras',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +59,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+EMAIL_HOST = 'smtp.example.com'          # Server for send
+EMAIL_HOST_USER = 'info@example.com'     # User name
+EMAIL_HOST_PASSWORD = 'password123'      # Password mail
+EMAIL_PORT = 2525                        # Port for connection
+EMAIL_USE_TLS = True                     # Use protocol crypto
+DEFAULT_FROM_EMAIL = 'info@example.com'  # email, for send letter
 
 CSRF_FAILURE_VIEW = 'home.views.csrf_failure' #For Error 403
 

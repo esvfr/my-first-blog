@@ -13,20 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
-from django.contrib import admin
+from django.conf.urls import url
 
-from home.views import e_handler404, e_handler500 # For Error 404 500
-from home import views
+from . import views
 
-handler404 = e_handler404
-handler500 = e_handler500
-
+app_name = 'search'
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^blog/', include('blog.urls')),
-    url(r'^post/', include('post.urls')),
-    url(r'^search/', include('search.urls')),
-    url(r'^', include('home.urls')),
-#    url(r'^$', views.EIndexView.as_view()),
+    url(r'^$', views.ESearchView.as_view(), name='index'),
 ]

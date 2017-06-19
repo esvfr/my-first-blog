@@ -20,5 +20,6 @@ from . import views
 app_name='home'
 urlpatterns = [
 #    url(r'^$', views.EIndexView.as_view(), name='index'),
+    url(r'^contacts/$', views.EContactsView.as_view(), name='contacts'),
     #url(r'^$', views.ArticlesFeed()),
 ]

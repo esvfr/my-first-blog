@@ -1,0 +1,21 @@
+{% extends 'search/base.html' %}
+{% load bootstrap3 %}
+{% block page %}
+    <h1>Search {{last_question}}</h1>
+    {% if article_lists %}
+        {% for article in article_lists %}
+            <article>
+                <a href="{{ article.get_absolute_url }}">
+                    <h2>{{ article.article_title }}</h2>
+                </a>
+                {{ article.desctription|safe }}
+                <p><a class="btn btn-default btn-sm" href="{{ article.get_absolute_url }}">Read next</a></p>
+            </article>
+        {% endfor %}
+
+        {% bootstrap_pagination article_lists url=last_question %}
+
+    {% else %}
+        <p>Not found publication for your request <br> Retry request with other key  {{article_lists}}</p>
+    {% endif %}
+{% endblock %}
