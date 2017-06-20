@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,20 +14,25 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from home.views import e_handler404, e_handler500 # For Error 404 500
+from accounts.views import ELoginView  # Представление для авторизации из модуля accounts
+
+from home.views import e_handler404, e_handler500  # For Error 404 500
 from home import views
 
 handler404 = e_handler404
 handler500 = e_handler500
 
 urlpatterns = [
+    url(r'^admin/login/', ELoginView.as_view()),
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/', include('accounts.urls')),  # также добавим url модуля авторизаций
     url(r'^blog/', include('blog.urls')),
     url(r'^post/', include('post.urls')),
     url(r'^search/', include('search.urls')),
     url(r'^', include('home.urls')),
-#    url(r'^$', views.EIndexView.as_view()),
+    #    url(r'^$', views.EIndexView.as_view()),
 ]

@@ -9,10 +9,19 @@
 {% endblock %}
 
 {% block content %}
-    {% block page %}
-    {% endblock page %}
-    {% block sidebar %}
-    {% endblock %}
+	<div class="conteiner">
+		<div class="row">
+			<div class=""col-md-12"">
+				{% block page %}
+    			{% endblock page %}
+			</div>
+    		<div class=""col-md-8"">
+	    		{% block sidebar %}
+					{% include 'blog/popular.html' %}
+			    {% endblock %}
+			</div>
+		</div>
+	</div>
 {% endblock content %}
 {% block footer %}
 {% endblock %}

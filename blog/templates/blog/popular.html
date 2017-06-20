@@ -1,0 +1,14 @@
+{% load blog_extras %}
+{% get_popular_articles_for_week as popular_list %}
+{% if popular_list %}
+    {% load bootstrap3 %}
+    <ul class="list-group">
+        <li class="list-group-item active"><strong> Популярные статьи за неделю </strong></li>
+        {% for pop_article in popular_list %}
+            <li class="list-group-item">
+                <a href="{% url 'blog:article_stat' pop_article.article_id %}">{{ pop_article.article__article_title }} - {{pop_article.views}} </a>
+            </li>
+        {% endfor %}
+
+    </ul>
+{% endif %}

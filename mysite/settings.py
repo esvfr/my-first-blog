@@ -45,8 +45,10 @@ INSTALLED_APPS = [
     #'home.apps.HomeConfig',
     'post',
     'search',
+    'accounts',
     'bootstrap3',
     'home.templatetags.home_extras',
+    #'blog.templatetags.blog_extras',
     'django.contrib.postgres',
 ]
 
