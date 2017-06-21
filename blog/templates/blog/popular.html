@@ -6,7 +6,10 @@
         <li class="list-group-item active"><strong> Популярные статьи за неделю </strong></li>
         {% for pop_article in popular_list %}
             <li class="list-group-item">
-                <a href="{% url 'blog:article_stat' pop_article.article_id %}">{{ pop_article.article__article_title }} - {{pop_article.views}} </a>
+                <a href="{% url 'blog:article_stat' pop_article.article_id %}">
+                    {{ pop_article.article_id }}
+                    {{ pop_article.article__article_title }}
+                    - {{pop_article.views}} </a>
             </li>
         {% endfor %}
 

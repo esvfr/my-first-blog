@@ -51,7 +51,7 @@ class ArticleStatistic(models.Model):
     class Meta:
         db_table = "ArticleStatistic"
 
-    article = models.ForeignKey(Article)  # external key on article
+    article = models.OneToOneField(Article)  # external key on article
     date = models.DateField('Date', default=timezone.now)  # Date
     views = models.IntegerField('Views', default=0)  # quantity views of this date
 

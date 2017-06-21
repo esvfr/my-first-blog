@@ -1,0 +1,27 @@
+{% extends 'home/base.html' %}
+{% block page %}
+    {% load home_extras %}
+    <h1>Publisher 11 </h1>
+    {% if object_list %}
+        {% for article in object_list %}
+            <article>
+                <a href="{{ article.get_absolute_url }}">
+                    <h2>{{ article.article_title }}</h2>
+                </a>
+                {{ article.desctription|safe }}
+<!--                {% include 'blog/article.html' %} -->
+                <p><a class="btn btn-default btn-sm" href="{{ article.get_absolute_url }}">Read article</a></p>
+		        {{ article.get_absolute_url }}
+            </article>
+            <div data-id="{{ article.id }}" data-type="article" data-action="bookmark" title="Избранное">
+                <span class="glyphicon glyphicon-star"></span>
+                <span data-count="bookmark"> {{ like_obj.get_bookmark_count }} </span>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+<script type="text/javascript"> {% include "ajax.js" %}</script>
+
+{% load bootstrap3 %}
+{% bootstrap_pagination page_obj %}
+{% endblock %}

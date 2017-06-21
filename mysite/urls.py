@@ -31,8 +31,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('accounts.urls')),  # также добавим url модуля авторизаций
     url(r'^blog/', include('blog.urls')),
+    url(r'^blog_list/', include('blog_list.urls')),
     url(r'^post/', include('post.urls')),
     url(r'^search/', include('search.urls')),
+    url(r'^api/', include('ajax.urls')),
     url(r'^', include('home.urls')),
     #    url(r'^$', views.EIndexView.as_view()),
 ]
